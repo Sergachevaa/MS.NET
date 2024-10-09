@@ -65,7 +65,5 @@
   </ul>
   </p>
   <p><b> Цветочная база </b></p>
-![База данных цветочного магазина](https://github.com/user-attachments/assets/bad7f85e-1093-40d8-8a03-3efd638e9481)
-
-
+![База данных цветочного магазина](https://github.com/user-attachments/assets/99db9296-a10d-4fcc-881d-31756f7a42fe)
 
