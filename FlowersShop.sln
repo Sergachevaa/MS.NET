@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowersShop.Service", "FlowersShop\FlowersShop.Service\FlowersShop.Service.csproj", "{65F64D2E-2E85-49AE-80BE-00368CAF1994}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowersShop.DataAccess", "FlowersShop\FlowersShop.DataAccess\FlowersShop.DataAccess.csproj", "{F1C08E8D-B7C0-4D05-A5D9-9F9B480B38B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65F64D2E-2E85-49AE-80BE-00368CAF1994}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65F64D2E-2E85-49AE-80BE-00368CAF1994}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65F64D2E-2E85-49AE-80BE-00368CAF1994}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65F64D2E-2E85-49AE-80BE-00368CAF1994}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1C08E8D-B7C0-4D05-A5D9-9F9B480B38B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1C08E8D-B7C0-4D05-A5D9-9F9B480B38B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1C08E8D-B7C0-4D05-A5D9-9F9B480B38B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C08E8D-B7C0-4D05-A5D9-9F9B480B38B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
