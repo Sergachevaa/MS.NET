@@ -12,9 +12,10 @@ public class UserEntity : BaseEntity
     public string PhoneNumber { get; set; }
     public Role Role { get; set; }
     
+    public int FlowersShopId { get; set; }
+    public FlowersShop FlowersShop { get; set; }
     public int DiscountId { get; set; }
-   // [ForeignKey("DiscountId")]
     public Discount Discounts { get; set; }
-
+    
     public virtual List<Discount> Discount { get; set; }
 }

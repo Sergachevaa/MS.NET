@@ -11,6 +11,7 @@ namespace FlowersShop.DataAccess.Entities
         public int PhoneNumber { get; set; } 
         public string Email { get; set; }
         
-        public virtual List<Item> Items { get; set; } // Изменено на множественное число
+        public virtual List<Item> Items { get; set; } 
+        public virtual List<UserEntity> Users { get; set; }
     }
 }

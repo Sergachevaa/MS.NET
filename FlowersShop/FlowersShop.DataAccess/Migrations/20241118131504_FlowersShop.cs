@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FlowersShop.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreation : Migration
+    public partial class FlowersShop : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -130,6 +130,7 @@ namespace FlowersShop.DataAccess.Migrations
                     PasswordHash = table.Column<string>(type: "text", nullable: false),
                     PhoneNumber = table.Column<string>(type: "text", nullable: false),
                     Role = table.Column<int>(type: "integer", nullable: false),
+                    FlowersShopId = table.Column<int>(type: "integer", nullable: false),
                     DiscountId = table.Column<int>(type: "integer", nullable: false),
                     ExternalId = table.Column<Guid>(type: "uuid", nullable: false),
                     CreationTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
@@ -142,6 +143,12 @@ namespace FlowersShop.DataAccess.Migrations
                         name: "FK_Users_Discounts_DiscountId",
                         column: x => x.DiscountId,
                         principalTable: "Discounts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Users_FlowersShop_FlowersShopId",
+                        column: x => x.FlowersShopId,
+                        principalTable: "FlowersShop",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -165,6 +172,11 @@ namespace FlowersShop.DataAccess.Migrations
                 name: "IX_Users_DiscountId",
                 table: "Users",
                 column: "DiscountId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_FlowersShopId",
+                table: "Users",
+                column: "FlowersShopId");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Discounts_Users_UserEntitysId",
@@ -192,13 +204,13 @@ namespace FlowersShop.DataAccess.Migrations
                 name: "Items");
 
             migrationBuilder.DropTable(
-                name: "FlowersShop");
-
-            migrationBuilder.DropTable(
                 name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Discounts");
+
+            migrationBuilder.DropTable(
+                name: "FlowersShop");
         }
     }
 }

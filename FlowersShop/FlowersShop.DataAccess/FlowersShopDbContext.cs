@@ -12,8 +12,6 @@ namespace FlowersShop.DataAccess
         public DbSet<UserEntity> Users { get; set; }
         public DbSet<Discount> Discounts { get; set; }
         public DbSet<FlowersShop.DataAccess.Entities.FlowersShop> FlowerShops { get; set; }
-
-      //  public DbSet<FlowersShop> FlowerShops { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<ItemCategory> ItemCategories { get; set; }
 
@@ -24,7 +22,7 @@ namespace FlowersShop.DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+             base.OnModelCreating(modelBuilder);
 
             // Конфигурация связи один-ко-многим между Discount и UserEntity
             modelBuilder.Entity<UserEntity>()
@@ -53,6 +51,13 @@ namespace FlowersShop.DataAccess
                         .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                 );
+
+            // Конфигурация связи один-ко-многим между FlowersShop и UserEntity
+            modelBuilder.Entity<UserEntity>()
+                .HasOne(u => u.FlowersShop)
+                .WithMany(f => f.Users)
+                .HasForeignKey(u => u.FlowersShopId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FlowersShop.DataAccess.Migrations
 {
     [DbContext(typeof(FlowersShopDbContext))]
-    [Migration("20241111132406_InitialCreation")]
-    partial class InitialCreation
+    [Migration("20241118131504_FlowersShop")]
+    partial class FlowersShop
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -190,6 +190,9 @@ namespace FlowersShop.DataAccess.Migrations
                     b.Property<Guid>("ExternalId")
                         .HasColumnType("uuid");
 
+                    b.Property<int>("FlowersShopId")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("ModificationTime")
                         .HasColumnType("timestamp with time zone");
 
@@ -219,6 +222,8 @@ namespace FlowersShop.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("DiscountId");
+
+                    b.HasIndex("FlowersShopId");
 
                     b.ToTable("Users");
                 });
@@ -268,7 +273,15 @@ namespace FlowersShop.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("FlowersShop.DataAccess.Entities.FlowersShop", "FlowersShop")
+                        .WithMany("Users")
+                        .HasForeignKey("FlowersShopId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Discounts");
+
+                    b.Navigation("FlowersShop");
                 });
 
             modelBuilder.Entity("ItemItemCategory", b =>
@@ -294,6 +307,8 @@ namespace FlowersShop.DataAccess.Migrations
             modelBuilder.Entity("FlowersShop.DataAccess.Entities.FlowersShop", b =>
                 {
                     b.Navigation("Items");
+
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("FlowersShop.DataAccess.Entities.UserEntity", b =>
