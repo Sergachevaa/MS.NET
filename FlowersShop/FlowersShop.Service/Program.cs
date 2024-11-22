@@ -1,16 +1,11 @@
+using FlowersShop.Service.DI;
 using FlowersShop.Service.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
-SerilogConfigurator.ConfigureService(builder);
-SwaggerConfigurator.ConfigureServices(builder.Services);
-DbContextConfigurator.ConfigureService(builder);
+ApplicationConfigurator.ConfigureServices(builder);
 
 var app = builder.Build();
+ApplicationConfigurator.ConfigureApplication(app);
 
-SerilogConfigurator.ConfigureApplication(app);
-SwaggerConfigurator.ConfigureApplication(app);
-DbContextConfigurator.ConfigureApplication(app);
-
-app.UseHttpsRedirection();
 app.Run();

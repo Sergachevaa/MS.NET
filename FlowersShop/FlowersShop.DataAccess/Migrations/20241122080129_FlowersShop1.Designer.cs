@@ -3,6 +3,7 @@ using System;
 using FlowersShop.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FlowersShop.DataAccess.Migrations
 {
     [DbContext(typeof(FlowersShopDbContext))]
-    partial class FlowersShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241122080129_FlowersShop1")]
+    partial class FlowersShop1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

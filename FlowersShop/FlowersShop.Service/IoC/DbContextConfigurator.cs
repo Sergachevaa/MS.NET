@@ -1,13 +1,11 @@
 ﻿using FlowersShop.DataAccess;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace FlowersShop.Service.IoC
 {
     public static class DbContextConfigurator
     {
-        public static void ConfigureService(WebApplicationBuilder builder)
+        public static void ConfigureServices(WebApplicationBuilder builder)
         {
             var configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json", optional: false)
@@ -17,8 +15,7 @@ namespace FlowersShop.Service.IoC
 
             builder.Services.AddDbContextFactory<FlowersShopDbContext>(
                 options => { options.UseNpgsql(connectionString); },
-                ServiceLifetime.Scoped
-            );
+                ServiceLifetime.Scoped);
         }
 
         public static void ConfigureApplication(IApplicationBuilder app)
@@ -28,5 +25,6 @@ namespace FlowersShop.Service.IoC
             using var context = contextFactory.CreateDbContext();
             context.Database.Migrate();
         }
+        
     }
 }

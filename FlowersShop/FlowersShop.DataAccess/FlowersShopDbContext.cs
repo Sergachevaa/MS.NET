@@ -1,10 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using FlowersShop.DataAccess.Entities;
 
-
-using System;
-using System.Collections.Generic;
-
 namespace FlowersShop.DataAccess
 {
     public class FlowersShopDbContext : DbContext
@@ -22,13 +18,23 @@ namespace FlowersShop.DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-             base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder);
+
+            // Конфигурация индекса для UserEntity
+            modelBuilder.Entity<UserEntity>()
+                .HasIndex(x => x.ExternalId)
+                .IsUnique(); 
 
             // Конфигурация связи один-ко-многим между Discount и UserEntity
             modelBuilder.Entity<UserEntity>()
                 .HasOne(u => u.Discounts)
                 .WithMany(d => d.UserEntity)
                 .HasForeignKey(u => u.DiscountId);
+
+            // Конфигурация индекса для Item
+            modelBuilder.Entity<Item>()
+                .HasIndex(x => x.ExternalId)
+                .IsUnique(); 
 
             // Конфигурация связи один-ко-многим между FlowersShop и Item
             modelBuilder.Entity<Item>()
@@ -51,6 +57,11 @@ namespace FlowersShop.DataAccess
                         .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                 );
+
+            // Конфигурация индекса для FlowersShop
+            modelBuilder.Entity<FlowersShop.DataAccess.Entities.FlowersShop>()
+                .HasIndex(x => x.ExternalId)
+                .IsUnique(); 
 
             // Конфигурация связи один-ко-многим между FlowersShop и UserEntity
             modelBuilder.Entity<UserEntity>()
