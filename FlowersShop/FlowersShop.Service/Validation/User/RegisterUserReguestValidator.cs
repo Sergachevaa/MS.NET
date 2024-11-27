@@ -7,7 +7,7 @@ public class RegisterUserRequestValidator : AbstractValidator<RegisterUserReques
 {
     public RegisterUserRequestValidator()
     {
-        RuleFor(x => x.PasswordHash)
+        RuleFor(x => x.Password)
             .NotEmpty()
             .WithMessage("Password is required");
         RuleFor(x => x.Email)

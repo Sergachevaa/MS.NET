@@ -6,7 +6,7 @@ namespace FlowersShop.Service.Controllers.Entities.UserEntities;
 
  public class RegisterUserRequest : IValidatableObject
     {
-        public string PasswordHash { get; set; }
+        public string Password { get; set; }
         public string Email { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -39,7 +39,7 @@ namespace FlowersShop.Service.Controllers.Entities.UserEntities;
                 errors.Add(new ValidationResult("ExternalId cannot be empty"));
 
             // Дополнительные проверки
-            if (PasswordHash.Length < 8)
+            if (Password.Length < 8)
                 errors.Add(new ValidationResult("Password must be at least 8 characters long"));
 
             if (RoleId <= 0)
@@ -89,7 +89,7 @@ namespace FlowersShop.Service.Controllers.Entities.UserEntities;
             }
 
             // Проверка пароля
-            if (PasswordHash.Length < 8)
+            if (Password.Length < 8)
             {
                 errorFiledNames.Add("PasswordHash");
                 errorMessages.AppendLine("Password must be at least 8 characters long");
