@@ -1,8 +1,10 @@
-﻿namespace FlowersShop.DataAccess.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace FlowersShop.DataAccess.Entities;
 
 public abstract class BaseEntity 
 {
-    public int Id { get; set; }
+    [Key] public int Id { get; set; }
     
     public Guid ExternalId { get; set; }
     public DateTime CreationTime { get; set; }

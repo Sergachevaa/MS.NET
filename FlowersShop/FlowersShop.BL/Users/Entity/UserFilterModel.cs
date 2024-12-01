@@ -10,5 +10,5 @@ public class UserFilterModel
     public DateTime? CreationTimeTo { get; set; } 
     public DateTime? ModificationTimeFrom { get; set; } 
     public DateTime? ModificationTimeTo { get; set; } 
-    public Role? Role { get; set; } 
+    //public Role? Role { get; set; } 
 }

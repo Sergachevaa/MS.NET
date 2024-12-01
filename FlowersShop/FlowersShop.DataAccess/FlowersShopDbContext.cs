@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using FlowersShop.DataAccess.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace FlowersShop.DataAccess
 {
@@ -18,8 +19,14 @@ namespace FlowersShop.DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<IdentityUserClaim<int>>().ToTable("user_claims");
+            modelBuilder.Entity<IdentityUserLogin<int>>().ToTable("user_logins").HasNoKey();
+            modelBuilder.Entity<IdentityUserToken<int>>().ToTable("user_tokens").HasNoKey();
+            modelBuilder.Entity<IdentityRole<int>>().ToTable("user_roles");
+            modelBuilder.Entity<IdentityRoleClaim<int>>().ToTable("user_roles_claims");
+            modelBuilder.Entity<IdentityUserRole<int>>().ToTable("user_role_owners").HasNoKey();
+            
             base.OnModelCreating(modelBuilder);
-
             // Конфигурация индекса для UserEntity
             modelBuilder.Entity<UserEntity>()
                 .HasIndex(x => x.ExternalId)
@@ -35,7 +42,6 @@ namespace FlowersShop.DataAccess
             modelBuilder.Entity<Item>()
                 .HasIndex(x => x.ExternalId)
                 .IsUnique(); 
-
             // Конфигурация связи один-ко-многим между FlowersShop и Item
             modelBuilder.Entity<Item>()
                 .HasOne(i => i.Flower)
@@ -62,7 +68,6 @@ namespace FlowersShop.DataAccess
             modelBuilder.Entity<FlowersShop.DataAccess.Entities.FlowersShop>()
                 .HasIndex(x => x.ExternalId)
                 .IsUnique(); 
-
             // Конфигурация связи один-ко-многим между FlowersShop и UserEntity
             modelBuilder.Entity<UserEntity>()
                 .HasOne(u => u.FlowersShop)

@@ -3,7 +3,7 @@ using FlowersShop.DataAccess.Entities;
 
 namespace FlowersShop.DataAccess.Repository;
 
-public class Repository<T> : IRepository<T> where T : BaseEntity
+public class Repository<T> : IRepository<T> where T : class, IBaseEntity
 {
     private readonly IDbContextFactory<FlowersShopDbContext> _contextFactory;
     public Repository(IDbContextFactory<FlowersShopDbContext> contextFactory)
