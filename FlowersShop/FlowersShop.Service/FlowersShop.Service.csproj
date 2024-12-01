@@ -8,6 +8,12 @@
 
     <ItemGroup>
         <PackageReference Include="AutoMapper" Version="13.0.1" />
+        <PackageReference Include="Duende.IdentityServer" Version="7.1.0-preview.1" />
+        <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="7.1.0-preview.1" />
+        <PackageReference Include="Duende.IdentityServer.EntityFramework" Version="7.1.0-preview.1" />
+        <PackageReference Include="Duende.IdentityServer.EntityFramework.Storage" Version="7.1.0-preview.1" />
+        <PackageReference Include="Duende.IdentityServer.Storage" Version="7.1.0-preview.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.11" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.10"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0-rc.2.24474.1">
           <PrivateAssets>all</PrivateAssets>

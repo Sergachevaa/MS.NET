@@ -9,7 +9,7 @@ public class CreateUserModel
     public string Name { get; set; } 
     public string Surname { get; set; } 
     public string? Patronymic { get; set; } 
-    public Role Role { get; set; } 
+    //public Role Role { get; set; } 
     public int FlowersShopId { get; set; } 
     public int? DiscountId { get; set; } 
     public string PhoneNumber { get; set; } 
