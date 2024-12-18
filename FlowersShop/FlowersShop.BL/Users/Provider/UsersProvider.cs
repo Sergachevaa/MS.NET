@@ -27,7 +27,7 @@ public class UsersProvider : IUsersProvider
         DateTime? creationTimeTo = filter?.CreationTimeTo;
         DateTime? modificationTimeFrom = filter?.ModificationTimeFrom;
         DateTime? modificationTimeTo = filter?.ModificationTimeTo;
-        Role? role = filter?.Role;
+        //Role? role = filter?.Role;
 
         var users = _userRepository.GetAll(); // Получаем всех пользователей
 
@@ -38,7 +38,7 @@ public class UsersProvider : IUsersProvider
         if (emailPart != null)
             users = users.Where(u => u.Email.Contains(emailPart));
 
-        if (creationTimeFrom != null)
+       /* if (creationTimeFrom != null)
             users = users.Where(u => u.CreationTime >= creationTimeFrom);
 
         if (creationTimeTo != null)
@@ -51,7 +51,7 @@ public class UsersProvider : IUsersProvider
             users = users.Where(u => u.ModificationTime <= modificationTimeTo);
 
         if (role != null)
-            users = users.Where(u => u.Role == role);
+            users = users.Where(u => u.Role == role);*/
 
         return _mapper.Map<IEnumerable<UserModel>>(users); // Маппинг в UserModel
     }

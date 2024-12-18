@@ -3,7 +3,7 @@ using FlowersShop.DataAccess.Entities;
 
 namespace FlowersShop.DataAccess.Repository;
 
-public interface IRepository<T> where T : BaseEntity
+public interface IRepository<T> where T : IBaseEntity
 {
     IQueryable<T> GetAll();
 
