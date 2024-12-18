@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowersShop.DataAccess", "F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowersShop.BL", "FlowersShop\FlowersShop.BL\FlowersShop.BL.csproj", "{9BE5382B-0F1F-476C-A27D-80732A668CB6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FlowersShopBLTests", "FlowersShopBLTests", "{F4072147-31B2-4D27-A62D-5397B50F1C74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowersShopUnitTests", "FlowersShopUnitTests\FlowersShopUnitTests.csproj", "{D181EE08-2251-454D-93EF-D312F47611FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,12 @@ Global
 		{9BE5382B-0F1F-476C-A27D-80732A668CB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BE5382B-0F1F-476C-A27D-80732A668CB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BE5382B-0F1F-476C-A27D-80732A668CB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D181EE08-2251-454D-93EF-D312F47611FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D181EE08-2251-454D-93EF-D312F47611FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D181EE08-2251-454D-93EF-D312F47611FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D181EE08-2251-454D-93EF-D312F47611FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D181EE08-2251-454D-93EF-D312F47611FD} = {F4072147-31B2-4D27-A62D-5397B50F1C74}
 	EndGlobalSection
 EndGlobal
